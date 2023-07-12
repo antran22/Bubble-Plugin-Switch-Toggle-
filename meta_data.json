@@ -1,0 +1,11 @@
+{
+    "categories": {
+        "0": "media",
+        "1": "productivity",
+        "2": "technical"
+    },
+    "description": "Just a no-nonsense, customizable switch (toggle) element.\n\nFeatures:\n- Customize the color scheme of the switch. The color scheme can also be embedded into a reusable style.\n- Absolutely responsive. The size of the switch is going to fit it's Bubble's box size. Just ensure that the width is more than the height for the element to work correctly\n- Set the value of the switch by initial value, autobinding, manually update the element with a workflow action.",
+    "image": "//s3.amazonaws.com/appforest_uf/f1680110452618x480268629497628800/5720464.png",
+    "license": "open_source",
+    "name": "Switch (Toggle)"
+}
