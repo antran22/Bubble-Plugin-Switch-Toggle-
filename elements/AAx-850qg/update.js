@@ -10,6 +10,6 @@ function(instance, properties, context) {
         instance.data.updateInitialValue(properties.initial_value);
     }
 
-
     $toggle.prop("disabled", !!properties.disabled);
+    $toggle.prop("indeterminate", !!properties.indeterminate);
 }

@@ -1,12 +1,8 @@
 function(instance, context) {
-	const $toggle = jQuery(`<input class="cz-switch" type="checkbox" />`);
+	const $toggle = jQuery(`<input class="cz-checkbox" type="checkbox" />`);
     instance.canvas.append($toggle);
-    instance.canvas.addClass("cz-switch-container");
+    instance.canvas.addClass("cz-checkbox-container");
     instance.data.$toggle = $toggle;
-    
-    $toggle.click(function (evt) {
-        evt.stopPropagation();
-    });
     
     instance.data._value = null;
     
@@ -26,8 +22,12 @@ function(instance, context) {
     $toggle.change(function (evt) {
         evt.stopPropagation();
         evt.preventDefault();
-        updateValue($toggle.is(":checked"));
+        updateValue($toggle.is(":checked"), false);
         instance.triggerEvent("changed");
+    });
+    
+    $toggle.click(function (evt) {
+        evt.stopPropagation();
     });
     
     
@@ -39,19 +39,17 @@ function(instance, context) {
         instance.data.style = style;
         
         $toggle.css({
-            "--cz-switch-handle-padding": style.padding + "px",
-            "--cz-switch-bg-on": style.background_color_on,
-            "--cz-switch-bg-off": style.background_color_off,
-            "--cz-switch-bg-disabled": style.background_color_disabled,
-            "--cz-switch-bg-disabled-off": style.background_color_disabled_off,
-            "--cz-switch-handle-on": style.handle_color_on,
-            "--cz-switch-handle-off": style.handle_color_off,
-            "--cz-switch-handle-disabled": style.handle_color_disabled,
-            "--cz-switch-handle-disabled-off": style.handle_color_disabled_off,
-            "--cz-switch-handle-border-color": style.handle_border_color,
-            "--cz-switch-handle-border-width": style.handle_border_width + "px",
-            "--cz-switch-border-color": style.border_color,
-            "--cz-switch-border-width": style.border_width + "px",
+            "--cz-checkbox-padding": style.padding,
+            "--cz-checkbox-border-radius": style.border_radius + "px",
+            "--cz-checkbox-bg-on": style.background_color_on,
+            "--cz-checkbox-bg-off": style.background_color_off,
+            "--cz-checkbox-bg-disabled": style.background_color_disabled,
+            "--cz-checkbox-bg-indeterminate": style.background_color_indeterminate,
+            "--cz-checkbox-handle-color-on": style.handle_color_on,
+            "--cz-checkbox-handle-color-disabled": style.handle_color_disabled,
+            "--cz-checkbox-handle-color-indeterminate": style.handle_color_indeterminate,
+            "--cz-checkbox-border-color": style.border_color,
+            "--cz-checkbox-border-width": style.border_width + "px",
         });
     }
         
